@@ -1,3 +1,5 @@
+name: Java CI with Maven
+
 on:
   push:
     branches: [ master ]
@@ -7,16 +9,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        java: [ 23 ]
-    name: Java ${{ matrix.java }}
+
     steps:
-      - uses: actions/checkout@v2
-      - name: setup
-        uses: actions/setup-java@v1
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 27
+        uses: actions/setup-java@v4
         with:
-          java-version: ${{ matrix.java }}
-      - name: build
-        run: |
-          mvn -B package
+          java-version: '27'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build and Test with Maven
+        run: mvn -B clean verify
