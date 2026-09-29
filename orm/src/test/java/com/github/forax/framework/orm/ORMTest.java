@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SuppressWarnings("static-method")
 public class ORMTest {
-  /*
+
   @Nested
   public class Q1 {
     @Test @Tag("Q1")
@@ -344,6 +344,7 @@ public class ORMTest {
     }
   }
 
+
   @Nested
   public class Q4 {
 
@@ -432,6 +433,7 @@ public class ORMTest {
       this.age = age;
     }
   }
+
 
   @Nested
   public class Q5 {
@@ -655,6 +657,8 @@ public class ORMTest {
     }
   }
 
+
+
   @Nested
   public class Q7 {
 
@@ -766,7 +770,7 @@ public class ORMTest {
     }
   }
 
-
+  /*
   @Nested
   class Q8 {
 
