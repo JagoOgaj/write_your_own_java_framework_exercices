@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74bd28e4-ede9-4bbb-a92f-dae249a45c06" name="Changes" comment="add ci">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orm/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/orm/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orm/src/main/java/com/github/forax/framework/orm/ORM.java" beforeDir="false" afterPath="$PROJECT_DIR$/orm/src/main/java/com/github/forax/framework/orm/ORM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orm/src/test/java/com/github/forax/framework/orm/ORMTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/orm/src/test/java/com/github/forax/framework/orm/ORMTest.java" afterDir="false" />
     </list>
@@ -104,6 +102,7 @@
     "JUnit.JSONWriterTest$Q2.toJSONWithASimpleClass.executor": "Run",
     "JUnit.JSONWriterTest$Q6.executor": "Run",
     "JUnit.ORMTest$Q1.executor": "Run",
+    "JUnit.ORMTest$Q10.executor": "Run",
     "JUnit.ORMTest$Q2.executor": "Run",
     "JUnit.ORMTest$Q3.executor": "Run",
     "JUnit.ORMTest$Q4.executor": "Run",
@@ -111,6 +110,7 @@
     "JUnit.ORMTest$Q6.executor": "Run",
     "JUnit.ORMTest$Q7.executor": "Run",
     "JUnit.ORMTest$Q7.testRepositorySQLExceptionAreCorrectlyPropagated.executor": "Run",
+    "JUnit.ORMTest$Q8.executor": "Debug",
     "JUnit.ORMTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -118,7 +118,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "full.screen.before.presentation.mode": "true",
-    "git-widget-placeholder": "tp4/orm",
+    "git-widget-placeholder": "#6 on tp4/orm",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/samyoki/Desktop/esiee/semestre3/java-inside/write_your_own_java_framework_exercices",
     "node.js.detected.package.eslint": "true",
@@ -155,7 +155,7 @@
     </option>
   </component>
   <component name="RunManager" selected="JUnit.ORMTest">
-    <configuration name="ORMTest$Q5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ORMTest$Q10" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="orm" />
       <extension name="coverage">
         <pattern>
@@ -164,22 +164,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.github.forax.framework.orm.ORMTest" />
-      <option name="MAIN_CLASS_NAME" value="com.github.forax.framework.orm.ORMTest$Q5" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ORMTest$Q6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="orm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.forax.framework.orm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.github.forax.framework.orm.ORMTest" />
-      <option name="MAIN_CLASS_NAME" value="com.github.forax.framework.orm.ORMTest$Q6" />
+      <option name="MAIN_CLASS_NAME" value="com.github.forax.framework.orm.ORMTest$Q10" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -216,6 +201,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ORMTest$Q8" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="orm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.forax.framework.orm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.forax.framework.orm.ORMTest" />
+      <option name="MAIN_CLASS_NAME" value="com.github.forax.framework.orm.ORMTest$Q8" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ORMTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="orm" />
       <extension name="coverage">
@@ -234,10 +234,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ORMTest" />
-        <item itemvalue="JUnit.ORMTest$Q7.testRepositorySQLExceptionAreCorrectlyPropagated" />
+        <item itemvalue="JUnit.ORMTest$Q10" />
+        <item itemvalue="JUnit.ORMTest$Q8" />
         <item itemvalue="JUnit.ORMTest$Q7" />
-        <item itemvalue="JUnit.ORMTest$Q6" />
-        <item itemvalue="JUnit.ORMTest$Q5" />
+        <item itemvalue="JUnit.ORMTest$Q7.testRepositorySQLExceptionAreCorrectlyPropagated" />
       </list>
     </recent_temporary>
   </component>

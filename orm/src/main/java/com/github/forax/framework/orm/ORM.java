@@ -162,19 +162,40 @@ public final class ORM {
     var beanInfo = Utils.beanInfo(beanClass);
     var constructor = Utils.defaultConstructor(beanClass);
     var tableName = findTableName(beanClass);
-
+    var idProperty = findId(beanInfo);
     return repositoryType.cast(Proxy.newProxyInstance(
             repositoryType.getClassLoader(),
             new Class<?>[]{repositoryType},
-            (_, method, _) -> {
+            (proxy, method, args) -> {
               if (method.getDeclaringClass() == Object.class) {
                 throw new UnsupportedOperationException();
               }
               var connection = currentConnection();
-              return switch (method.getName()) {
-                case "findAll" -> findAll(connection, "SELECT * FROM " + tableName, beanInfo, constructor);
-                case "equals", "hashCode", "toString" -> throw new UnsupportedOperationException();
-                default -> throw new IllegalStateException();
+              var methodName = method.getName();
+              return switch (methodName) {
+                case "findAll" -> {
+                  var sqlQuery = "SELECT * FROM " + tableName;
+                  yield findAll(connection, sqlQuery, beanInfo, constructor);
+                }
+                case "findById" -> {
+                  var sqlQuery = "SELECT * FROM " + tableName + " WHERE " + idProperty.getName() + " = ?";
+                  yield findAll(connection, sqlQuery, beanInfo, constructor, args[0]).stream().findFirst();
+                }
+                case "save" -> save(connection, tableName, beanInfo, args[0], idProperty);
+                case "equals", "hashCode", "toString" -> throw new UnsupportedOperationException("" + method);
+                default -> {
+                  var query = method.getAnnotation(Query.class);
+                  if (query != null) {
+                    yield findAll(connection, query.value(), beanInfo, constructor, args);
+                  }
+                  if (methodName.startsWith("findBy")) {
+                    var propertyName = Introspector.decapitalize(methodName.substring(6));
+                    var property = findProperty(beanInfo, propertyName);
+                    var sqlQuery = "SELECT * FROM " + tableName + " WHERE " + property.getName() + " = ?";
+                    yield findAll(connection, sqlQuery, beanInfo, constructor, args[0]).stream().findFirst();
+                  }
+                  throw new IllegalStateException("unknown method " + method);
+                }
               };
             }
     ));
@@ -187,23 +208,85 @@ public final class ORM {
             .toList();
 
     for (var property : properties) {
-      var value = resultSet.getObject(findColumnName(property), property.getPropertyType());
+      var value = resultSet.getObject(findColumnName(property));
       Utils.invokeMethod(instance, property.getWriteMethod(), value);
     }
     return instance;
   }
 
-  static <T> List<T> findAll(Connection connection, String sqlQuery, BeanInfo beanInfo, Constructor<T> constructor) { // <- Plus de 'throws SQLException'
-    var list = new ArrayList<T>();
-    try (PreparedStatement statement = connection.prepareStatement(sqlQuery)) {
-      try (ResultSet resultSet = statement.executeQuery()) {
-        while (resultSet.next()) {
-          list.add(toEntityClass(resultSet, beanInfo, constructor));
+  static List<Object> findAll(Connection connection, String sqlQuery, BeanInfo beanInfo, Constructor<?> constructor, Object... args) {
+    var list = new ArrayList<>();
+    try(var statement = connection.prepareStatement(sqlQuery)) {
+      if (args != null) {
+        for (var i = 0; i < args.length; i++) {
+          statement.setObject(i + 1, args[i]);
         }
       }
-    } catch (SQLException e) {
+      try(var resultSet = statement.executeQuery()) {
+        while(resultSet.next()) {
+          var instance = toEntityClass(resultSet, beanInfo, constructor);
+          list.add(instance);
+        }
+      }
+    }
+    catch (SQLException e) {
       throw new UncheckedSQLException(e);
     }
     return list;
+  }
+
+  static String createSaveQuery(String tableName, BeanInfo beanInfo) {
+    var properties = Arrays.stream(beanInfo.getPropertyDescriptors())
+                    .filter(p -> p.getReadMethod() != null && !p.getName().equals("class"))
+                    .toList();
+    var columns = properties.stream()
+                  .map(ORM::findColumnName)
+                  .collect(Collectors.joining(", "));
+    var questionMarks = properties.stream()
+                        .map(_ -> "?")
+                        .collect(Collectors.joining(", "));
+
+    return "MERGE INTO " + tableName + " (" + columns + ") VALUES (" + questionMarks + ");";
+  }
+
+  static Object save(Connection connection, String tableName, BeanInfo beanInfo, Object bean, PropertyDescriptor idProperty) {
+    String sqlQuery = createSaveQuery(tableName, beanInfo);
+
+    try(var statement = connection.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS)) {
+      var index = 1;
+      for(var property: beanInfo.getPropertyDescriptors()) {
+        if (property.getName().equals("class")) {
+          continue;
+        }
+        statement.setObject(index++, Utils.invokeMethod(bean, property.getReadMethod()));
+      }
+      statement.executeUpdate();
+      if (idProperty != null) {
+        try(var resultSet = statement.getGeneratedKeys()) {
+          if (resultSet.next()) {
+            var key = resultSet.getObject(1);
+            Utils.invokeMethod(bean, idProperty.getWriteMethod(), key);
+          }
+        }
+      }
+    }
+    catch (SQLException e) {
+      throw new UncheckedSQLException(e);
+    }
+    return bean;
+  }
+
+  static PropertyDescriptor findId(BeanInfo beanInfo) {
+    return Arrays.stream(beanInfo.getPropertyDescriptors())
+            .filter(p -> p.getReadMethod() != null && p.getReadMethod().isAnnotationPresent(Id.class))
+            .findFirst()
+            .orElse(null);
+  }
+
+  static PropertyDescriptor findProperty(BeanInfo beanInfo, String propertyName) {
+    return Arrays.stream(beanInfo.getPropertyDescriptors())
+            .filter(property -> property.getName().equals(propertyName))
+            .findFirst()
+            .orElseThrow(() -> new IllegalStateException("no property " + propertyName + " found"));
   }
 }
