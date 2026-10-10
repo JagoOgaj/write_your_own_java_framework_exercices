@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="74bd28e4-ede9-4bbb-a92f-dae249a45c06" name="Changes" comment="add ci">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interceptor/src/main/java/org/github/forax/framework/interceptor/InterceptorRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/interceptor/src/main/java/org/github/forax/framework/interceptor/InterceptorRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interceptor/src/test/java/org/github/forax/framework/interceptor/InterceptorRegistryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/interceptor/src/test/java/org/github/forax/framework/interceptor/InterceptorRegistryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orm/src/main/java/com/github/forax/framework/orm/ORM.java" beforeDir="false" afterPath="$PROJECT_DIR$/orm/src/main/java/com/github/forax/framework/orm/ORM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orm/src/test/java/com/github/forax/framework/orm/ORMTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/orm/src/test/java/com/github/forax/framework/orm/ORMTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,13 +101,24 @@
     "JUnit.JSONWriterTest$Q2.toJSONWithAClass.executor": "Run",
     "JUnit.JSONWriterTest$Q2.toJSONWithASimpleClass.executor": "Run",
     "JUnit.JSONWriterTest$Q6.executor": "Run",
+    "JUnit.ORMTest$Q1.executor": "Run",
+    "JUnit.ORMTest$Q10.executor": "Run",
+    "JUnit.ORMTest$Q2.executor": "Run",
+    "JUnit.ORMTest$Q3.executor": "Run",
+    "JUnit.ORMTest$Q4.executor": "Run",
+    "JUnit.ORMTest$Q5.executor": "Run",
+    "JUnit.ORMTest$Q6.executor": "Run",
+    "JUnit.ORMTest$Q7.executor": "Run",
+    "JUnit.ORMTest$Q7.testRepositorySQLExceptionAreCorrectlyPropagated.executor": "Run",
+    "JUnit.ORMTest$Q8.executor": "Debug",
+    "JUnit.ORMTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "full.screen.before.presentation.mode": "true",
-    "git-widget-placeholder": "tp3/interceptor",
+    "git-widget-placeholder": "#6 on tp4/orm",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/samyoki/Desktop/esiee/semestre3/java-inside/write_your_own_java_framework_exercices",
     "node.js.detected.package.eslint": "true",
@@ -143,78 +154,78 @@
       <command value="mvn package" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.InterceptorRegistryTest$Q7">
-    <configuration name="InterceptorRegistryTest$Q5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="interceptor" />
+  <component name="RunManager" selected="JUnit.ORMTest">
+    <configuration name="ORMTest$Q10" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="orm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.github.forax.framework.interceptor.*" />
+          <option name="PATTERN" value="com.github.forax.framework.orm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.github.forax.framework.interceptor.InterceptorRegistryTest" />
-      <option name="MAIN_CLASS_NAME" value="org.github.forax.framework.interceptor.InterceptorRegistryTest$Q5" />
+      <option name="PACKAGE_NAME" value="com.github.forax.framework.orm.ORMTest" />
+      <option name="MAIN_CLASS_NAME" value="com.github.forax.framework.orm.ORMTest$Q10" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InterceptorRegistryTest$Q6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="interceptor" />
+    <configuration name="ORMTest$Q7" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="orm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.github.forax.framework.interceptor.*" />
+          <option name="PATTERN" value="com.github.forax.framework.orm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.github.forax.framework.interceptor.InterceptorRegistryTest" />
-      <option name="MAIN_CLASS_NAME" value="org.github.forax.framework.interceptor.InterceptorRegistryTest$Q6" />
+      <option name="PACKAGE_NAME" value="com.github.forax.framework.orm.ORMTest" />
+      <option name="MAIN_CLASS_NAME" value="com.github.forax.framework.orm.ORMTest$Q7" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InterceptorRegistryTest$Q7" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="interceptor" />
+    <configuration name="ORMTest$Q7.testRepositorySQLExceptionAreCorrectlyPropagated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="orm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.github.forax.framework.interceptor.*" />
+          <option name="PATTERN" value="com.github.forax.framework.orm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.github.forax.framework.interceptor.InterceptorRegistryTest" />
-      <option name="MAIN_CLASS_NAME" value="org.github.forax.framework.interceptor.InterceptorRegistryTest$Q7" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InterceptorRegistryTest$Q7.annotationOnClassMethodAndParametersDoNotRepeat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="interceptor" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.github.forax.framework.interceptor.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.github.forax.framework.interceptor.InterceptorRegistryTest" />
-      <option name="MAIN_CLASS_NAME" value="org.github.forax.framework.interceptor.InterceptorRegistryTest$Q7" />
-      <option name="METHOD_NAME" value="annotationOnClassMethodAndParametersDoNotRepeat" />
+      <option name="PACKAGE_NAME" value="com.github.forax.framework.orm.ORMTest" />
+      <option name="MAIN_CLASS_NAME" value="com.github.forax.framework.orm.ORMTest$Q7" />
+      <option name="METHOD_NAME" value="testRepositorySQLExceptionAreCorrectlyPropagated" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InterceptorRegistryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="interceptor" />
+    <configuration name="ORMTest$Q8" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="orm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.github.forax.framework.interceptor.*" />
+          <option name="PATTERN" value="com.github.forax.framework.orm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.github.forax.framework.interceptor" />
-      <option name="MAIN_CLASS_NAME" value="org.github.forax.framework.interceptor.InterceptorRegistryTest" />
+      <option name="PACKAGE_NAME" value="com.github.forax.framework.orm.ORMTest" />
+      <option name="MAIN_CLASS_NAME" value="com.github.forax.framework.orm.ORMTest$Q8" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ORMTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="orm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.forax.framework.orm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.forax.framework.orm" />
+      <option name="MAIN_CLASS_NAME" value="com.github.forax.framework.orm.ORMTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -222,11 +233,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.InterceptorRegistryTest$Q7" />
-        <item itemvalue="JUnit.InterceptorRegistryTest$Q7.annotationOnClassMethodAndParametersDoNotRepeat" />
-        <item itemvalue="JUnit.InterceptorRegistryTest$Q6" />
-        <item itemvalue="JUnit.InterceptorRegistryTest" />
-        <item itemvalue="JUnit.InterceptorRegistryTest$Q5" />
+        <item itemvalue="JUnit.ORMTest" />
+        <item itemvalue="JUnit.ORMTest$Q10" />
+        <item itemvalue="JUnit.ORMTest$Q8" />
+        <item itemvalue="JUnit.ORMTest$Q7" />
+        <item itemvalue="JUnit.ORMTest$Q7.testRepositorySQLExceptionAreCorrectlyPropagated" />
       </list>
     </recent_temporary>
   </component>

@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SuppressWarnings("static-method")
 public class ORMTest {
-  /*
+
   @Nested
   public class Q1 {
     @Test @Tag("Q1")
@@ -344,6 +344,7 @@ public class ORMTest {
     }
   }
 
+
   @Nested
   public class Q4 {
 
@@ -432,6 +433,7 @@ public class ORMTest {
       this.age = age;
     }
   }
+
 
   @Nested
   public class Q5 {
@@ -655,6 +657,8 @@ public class ORMTest {
     }
   }
 
+
+
   @Nested
   public class Q7 {
 
@@ -774,7 +778,7 @@ public class ORMTest {
     public void testCreateSaveQuery() {
       var beanInfo = Utils.beanInfo(Person.class);
       var sqlQuery = ORM.createSaveQuery("PERSON", beanInfo);
-      assertTrue(sqlQuery.endsWith("INTO PERSON (id, name) VALUES (?, ?);"));
+      assertTrue(sqlQuery.endsWith("INTO PERSON (ID, NAME) VALUES (?, ?);"));
     }
 
     @Test @Tag("Q8")
@@ -1264,5 +1268,5 @@ public class ORMTest {
     }
 
   }
-  */
+
 }
